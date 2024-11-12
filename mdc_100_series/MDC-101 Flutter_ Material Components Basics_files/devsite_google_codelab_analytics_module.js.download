@@ -1,0 +1,24 @@
+(function(_ds){var window=this;/*
+
+ Copyright 2018 Google Inc.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+var via=["google-codelab"],z$=function(){const a=document.createElement("script");a.src="https://www.google-analytics.com/analytics.js";a.async=!1;return new Promise((b,c)=>{a.onload=()=>b(a);a.onerror=()=>{a.parentNode&&a.parentNode.removeChild(a);c()};document.head&&document.head.appendChild(a)})},wia=async function(){window.GoogleAnalyticsObject="ga";window.ga=window.ga||function(){(window.ga.q=window.ga.q||[]).push(arguments)};window.ga.l=(new Date).valueOf();try{return await z$()}catch(a){}},
+xia=function(a){if(a.g){window.codelabDataLayer=window.codelabDataLayer||[];var b=document.querySelector("script"),c=document.createElement("script");c.async=!0;_ds.cf(c,(0,_ds.zf)`//www.googletagmanager.com/gtag/js?id=${a.g}&l=${"codelabDataLayer"}`);b.parentNode.insertBefore(c,b);window.gtag=function(){window.codelabDataLayer.push(arguments)};window.gtag("js",new Date(Date.now()));window.gtag("config",a.g,{send_page_view:!1})}},A$=function(a){a.ma.listen(document.body,"google-codelab-action",b=>
+{b=b.getBrowserEvent().detail;yia(a,b.category,b.action,b.label)});a.ma.listen(document.body,"google-codelab-pageview",b=>{b=b.getBrowserEvent().detail;zia(a,b.page,b.title)})},D$=function(a){if(window.ga){a.h&&!B$(a.h)&&window.ga("create",a.h,"auto");a:{var b=location.search.substring(1).split("&");for(let c=0;c<b.length;c++){let d=b[c].split("=");if(d[0]==="viewga"){b=d[1];break a}}b=""}b&&!B$(b)&&(window.ga("create",b,"auto","view"),window.ga("view.send","pageview"))}C$(a)},E$=function(){via.forEach(a=>
+{document.querySelectorAll(a).forEach(b=>{b.setAttribute("anayltics-ready","anayltics-ready")})})},yia=function(a,b,c,d){F$({hitType:"event",dimension1:a.m,dimension2:a.o||"",dimension4:a.ea||void 0,eventCategory:b,eventAction:c||"",eventLabel:d||""});if(G$(a).length){window.codelabDataLayer=window.codelabDataLayer||[];window.gtag=window.gtag||function(){window.codelabDataLayer.push(arguments)};for(const e of G$(a))window.gtag("event",b,{send_to:e,eventAction:c||"",eventLabel:d||"",codelabEnv:a.m||
+"",codelabId:a.ea||""})}},zia=function(a,b,c){F$({hitType:"pageview",dimension1:a.m,dimension2:a.o,dimension4:a.ea||void 0,page:b||"",title:c||""});if(G$(a).length){window.codelabDataLayer=window.codelabDataLayer||[];window.gtag=window.gtag||function(){window.codelabDataLayer.push(arguments)};for(const d of G$(a))window.gtag("event","page_view",{send_to:d,page_location:`${document.location.origin}${document.location.pathname}`,page_path:b||"",page_title:c||"",codelabCategory:a.o||"",codelabEnv:a.m||
+"",codelabId:a.ea||""})}},C$=function(a){window.ga&&(a=a.getAttribute("codelab-gaid"))&&!B$(a)&&window.ga("create",a,"auto","codelabAccount")},F$=function(a){window.ga(function(){window.ga.getAll&&window.ga.getAll().forEach(b=>{b.send(a)})})},G$=function(a){if(!a.g)return[];const b=[];b.push(a.g);(a=a.getAttribute("codelab-ga4id"))&&b.push(a);return b.length?b:[]},B$=function(a){let b=!1;window.ga&&window.ga.getAll&&window.ga.getAll().forEach(c=>{c.get("trackingId")==a&&(b=!0)});return b},H$=class extends HTMLElement{constructor(){super();
+this.v=!1;this.ma=new _ds.F;this.o=this.getAttribute("category")||"";this.m=this.getAttribute("environment")||""}connectedCallback(){this.h=this.getAttribute("gaid")||"";this.g=this.getAttribute("ga4id")||"";this.v||!this.h&&!this.g||("ga"in window?(D$(this),A$(this),E$(),this.v=!0):wia().then(a=>{a&&(D$(this),A$(this),E$(),this.v=!0)}),this.g&&xia(this),this.g&&!this.h&&A$(this))}static get observedAttributes(){return["codelab-gaid","environment","category","codelab-id"]}attributeChangedCallback(a,
+b,c){switch(a){case "gaid":this.h=c;break;case "codelab-gaid":c&&this.v&&C$(this);break;case "environment":this.m=c;break;case "category":this.o=c;break;case "codelab-id":this.ea=c}}disconnectedCallback(){_ds.G(this.ma)}};H$.injectGAScript=z$;H$.prototype.disconnectedCallback=H$.prototype.disconnectedCallback;H$.prototype.attributeChangedCallback=H$.prototype.attributeChangedCallback;H$.prototype.connectedCallback=H$.prototype.connectedCallback;var Aia=class extends H${};try{customElements.define("google-codelab-analytics",Aia)}catch(a){console.warn("Unrecognized DevSite custom element - DevsiteCodelabAnalytics",a)};})(_ds_www);

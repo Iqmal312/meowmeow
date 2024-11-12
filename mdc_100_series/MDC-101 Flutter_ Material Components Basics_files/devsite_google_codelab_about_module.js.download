@@ -1,0 +1,21 @@
+(function(_ds){var window=this;var sia=function(a){var b=a.duration,c=a.oo;a=a.Fm;b='<div class="caption">About this codelab</div><div class="about">'+(b?'<div class="about-item duration"><i class="material-icons">schedule</i>'+_ds.X(b)+"</div>":"");c&&(b+='<div class="about-item last-updated"><i class="material-icons">subject</i>',c="Last updated "+_ds.X(c),b+=c,b+="</div>");b+='<div class="about-item authors"><i class="material-icons">account_circle</i>';a?(c="Written by "+_ds.X(a),b+=c):b+="Written by a Googler";return(0,_ds.W)(b+
+"</div></div>")};var tia=function(a){a=a||{};var b=a.aw;const c=a.oo,d=a.Fm;a="";if(b){a+='<div class="codelab-title">';const e=b.length;for(let f=0;f<e;f++)a+='<div class="token">'+_ds.X(b[f])+"</div>";a+="</div>"}a+='<div class="about-card"><h2 class="title">About this codelab</h2>';c&&(a+='<div class="last-updated"><i class="material-icons">subject</i>',b="Last updated "+_ds.X(c),a+=b,a+="</div>");a+='<div class="authors"><i class="material-icons">account_circle</i>';d?(b="Written by "+_ds.X(d),a+=b):a+="Written by a Googler";
+return(0,_ds.W)(a+"</div></div>")};/*
+
+ Copyright 2018 Google Inc.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+var x$=function(a){a.hasAttribute("last-updated")&&(a.ma=a.getAttribute("last-updated"));a.hasAttribute("authors")&&(a.o=a.getAttribute("authors"));a.hasAttribute("codelab-title")&&(a.ea=a.getAttribute("codelab-title"));var b;(b=a.ma)?(b=new Date(b),b=(new _ds.bO("MMM d, yyyy")).format(b)):b=null;_ds.O(a,tia,{oo:b,Fm:a.o,aw:a.ea.split(":").join(":||").split("||")});a.v=!0},y$=class extends HTMLElement{constructor(){super();this.ea=this.o="";this.v=!1;this.ma=""}connectedCallback(){this.v||x$(this)}disconnectedCallback(){}static get observedAttributes(){return["authors",
+"last-updated","codelab-title"]}attributeChangedCallback(){x$(this)}};y$.prototype.attributeChangedCallback=y$.prototype.attributeChangedCallback;y$.prototype.disconnectedCallback=y$.prototype.disconnectedCallback;y$.prototype.connectedCallback=y$.prototype.connectedCallback;var uia=class extends y${constructor(){super(...arguments);this.h=!1;this.locale=this.m="";this.g=new _ds.Tf}async connectedCallback(){var a=await _ds.t();this.locale=a.getLocale()||"en";this.h=await a.hasMendelFlagAccess("MiscFeatureFlags","enable_codelabs_as_a_content_type");var b;this.m=((b=document.querySelector("google-codelab"))==null?void 0:b.getAttribute("layout"))||"paginated";if(this.h||this.m==="scrolling"){a=(new _ds.tG("{MINUTES, plural, =1 {1 minute}other {# minutes}}")).format({MINUTES:this.getAttribute("duration")||
+"0"});(b=this.getAttribute("last-updated")||"")&&(b=(new Intl.DateTimeFormat(this.locale.replace("_","-"),{month:"long",day:"numeric",year:"numeric"})).format(new Date(b)));const c=this.getAttribute("authors")||"";_ds.O(this,sia,{duration:a,oo:b,Fm:c})}else super.connectedCallback();this.g.resolve()}disconnectedCallback(){super.disconnectedCallback();this.g=new _ds.Tf}async attributeChangedCallback(a,b,c,d){await this.g.promise;this.h||this.m==="scrolling"||super.attributeChangedCallback(a,b,c,d)}};try{customElements.define("google-codelab-about",uia)}catch(a){console.warn("Unrecognized DevSite custom element - DevsiteCodelabAbout",a)};})(_ds_www);
